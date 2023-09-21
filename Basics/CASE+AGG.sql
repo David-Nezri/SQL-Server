@@ -1,0 +1,26 @@
+SELECT * FROM [Order Details]
+ORDER BY UnitPrice
+
+
+		SELECT 
+		SUM(CASE WHEN UNITPRICE BETWEEN 0 AND 50 THEN 1
+	    ELSE 0 END )AS 'OUT',
+
+		--select UNITPRICE  from [Order Details] order by UNITPRICE  asc
+		 SUM(CASE WHEN UNITPRICE > 50 THEN 1
+		ELSE 0 END )AS 'NOT GOOD'
+			,
+		 SUM(CASE WHEN UNITPRICE > 100 THEN 1
+		ELSE 0 END )AS 'OK'
+			,
+		 SUM(CASE WHEN UNITPRICE > 200 THEN 1
+		ELSE 0 END ) AS 'AWESOM'
+			,
+		 SUM(CASE WHEN UNITPRICE > 0 THEN 1
+		ELSE 0 END ) AS 'total unit prices'
+
+						FROM [Order Details]
+
+
+
+	
